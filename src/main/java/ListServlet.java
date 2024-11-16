@@ -30,20 +30,40 @@ public class ListServlet extends HttpServlet {
         w.println("</STYLE>");
         w.println("</HEAD>");
         w.println("<BODY>");
-        w.println("<TABLE>");
-        w.println("<TR><TH>Поле A</TH><TH>Поле B</TH><TH>Поле C</TH></TR>");
-        for(MyObject object : objects) {
 
+        w.println("<FORM action=\"delete.html\" method=\"post\">");
+
+        w.println("<TABLE>");
+
+        w.print("<TR>");
+        w.print("<TH>&nbsp;</TH>");
+        w.print("<TH>Поле A</TH>");
+        w.print("<TH>Поле B</TH>");
+        w.print("<TH>Поле C</TH>");
+        w.println("</TR>");
+
+        for(MyObject object : objects) {
             w.print("<TR>");
+
+            w.printf("<TD>");
+            w.printf("<INPUT type=\"checkbox\" name=\"id\" value=\"%d\">",
+                     object.getId());
+            w.printf("</TD>");
+
             w.printf("<TD><A href=\"edit.html?id=%d\">%s</A></TD>",
                      object.getId(), object.getFieldA());
             w.printf("<TD>%.2f</TD>", object.getFieldB());
             w.printf("<TD>%s</TD>", object.getFieldC() ? "Да" : "Нет");
             w.println("</TR>");
-
         }
         w.println("</TABLE>");
-        w.println("<P><A href=\"edit.html\">Добавить</A></P>");
+
+        w.println("<P>");
+        w.println("<A href=\"edit.html\">Добавить</A>");
+        w.println("<BUTTON type=\"submit\">Удалить</BUTTON>");
+        w.println("</P>");
+        w.println("</FORM>");
+
         w.println("</BODY>");
         w.println("</HTML>");
     }

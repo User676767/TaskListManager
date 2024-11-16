@@ -12,7 +12,6 @@
         <servlet-name>ListServlet</servlet-name>
         <url-pattern>/index.html</url-pattern>
     </servlet-mapping>
-
     <servlet>
         <servlet-name>EditServlet</servlet-name>
         <servlet-class>EditServlet</servlet-class>
@@ -21,7 +20,6 @@
         <servlet-name>EditServlet</servlet-name>
         <url-pattern>/edit.html</url-pattern>
     </servlet-mapping>
-
     <servlet>
         <servlet-name>SaveServlet</servlet-name>
         <servlet-class>SaveServlet</servlet-class>
@@ -30,4 +28,14 @@
         <servlet-name>SaveServlet</servlet-name>
         <url-pattern>/save.html</url-pattern>
     </servlet-mapping>
+
+    <servlet>
+        <servlet-name>DeleteServlet</servlet-name>
+        <servlet-class>DeleteServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>DeleteServlet</servlet-name>
+        <url-pattern>/delete.html</url-pattern>
+    </servlet-mapping>
+
 </web-app>

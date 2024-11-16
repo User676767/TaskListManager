@@ -38,6 +38,9 @@ public class ListServlet extends HttpServlet {
                      object.getFieldC() ? "Да" : "Нет");
         }
         w.println("</TABLE>");
+
+        w.println("<P><A href=\"edit.html\">Добавить</A></P>");
+
         w.println("</BODY>");
         w.println("</HTML>");
     }

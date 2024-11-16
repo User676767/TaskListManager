@@ -14,10 +14,16 @@ public class SaveServlet extends HttpServlet {
         object.setFieldA(req.getParameter("field-a"));
         object.setFieldB(Double.parseDouble(req.getParameter("field-b")));
         object.setFieldC(req.getParameter("field-c") != null);
-        Storage.create(object);
 
-        /* отправка ответа в браузер с указанием перейти по другому URL */
+        try {
+            object.setId(Integer.parseInt(req.getParameter("id")));
+        } catch(NumberFormatException e) {}
+        if(object.getId() == null) {
+            Storage.create(object);
+        } else {
+            Storage.update(object);
+        }
+
         resp.sendRedirect(req.getContextPath() + "/index.html");
-
     }
 }

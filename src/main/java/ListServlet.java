@@ -33,16 +33,18 @@ public class ListServlet extends HttpServlet {
         w.println("<TABLE>");
         w.println("<TR><TH>Поле A</TH><TH>Поле B</TH><TH>Поле C</TH></TR>");
         for(MyObject object : objects) {
-            w.printf("<TR><TD>%s</TD><TD>%.2f</TD><TD>%s</TD></TR>",
-                     object.getFieldA(), object.getFieldB(),
-                     object.getFieldC() ? "Да" : "Нет");
+
+            w.print("<TR>");
+            w.printf("<TD><A href=\"edit.html?id=%d\">%s</A></TD>",
+                     object.getId(), object.getFieldA());
+            w.printf("<TD>%.2f</TD>", object.getFieldB());
+            w.printf("<TD>%s</TD>", object.getFieldC() ? "Да" : "Нет");
+            w.println("</TR>");
+
         }
         w.println("</TABLE>");
-
         w.println("<P><A href=\"edit.html\">Добавить</A></P>");
-
         w.println("</BODY>");
         w.println("</HTML>");
     }
 }
-

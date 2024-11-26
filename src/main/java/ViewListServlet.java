@@ -40,6 +40,7 @@ public class ViewListServlet extends HttpServlet {
         w.print("<TH>Поле C</TH>");
         w.println("</TR>");
         for(MyObject object : objects) {
+        //
             w.print("<TR>");
             w.printf("<TD>");
             w.printf("<INPUT type=\"checkbox\" name=\"id\" value=\"%d\">",
